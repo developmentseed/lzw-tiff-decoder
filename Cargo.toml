@@ -1,17 +1,22 @@
 [package]
-name = "viv-lzw-tiff-decoder"
+name = "lzw-tiff-decoder"
 version = "0.1.0"
-authors = ["Trevor Manz <trevor.j.manz@gmail.com>"]
-edition = "2018"
+authors = [
+    "Trevor Manz <trevor.j.manz@gmail.com>",
+    "Kyle Barron <kyle@developmentseed.org>",
+]
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["console_error_panic_hook"]
+default = ["lol_alloc"]
+debug = ["dep:console_error_panic_hook"]
+lol_alloc = ["dep:lol_alloc"]
 
 [dependencies]
-weezl = "0.1.0"
+weezl = { version = "0.1.0", features = ["alloc"], default-features = false }
 wasm-bindgen = "0.2.63"
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
@@ -20,12 +25,7 @@ wasm-bindgen = "0.2.63"
 # code size when deploying.
 console_error_panic_hook = { version = "0.1.6", optional = true }
 
-# `wee_alloc` is a tiny allocator for wasm that is only ~1K in code size
-# compared to the default allocator's ~10K. It is slower than the default
-# allocator, however.
-#
-# Unfortunately, `wee_alloc` requires nightly Rust when targeting wasm for now.
-wee_alloc = { version = "0.4.5", optional = true }
+lol_alloc = { version = "0.4.1", optional = true }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.13"
