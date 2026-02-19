@@ -2,10 +2,10 @@ use wasm_bindgen::prelude::*;
 use weezl::decode::Decoder;
 use weezl::{BitOrder, LzwStatus};
 
-// When the `wee_alloc` feature is enabled, use `wee_alloc` as the global allocator.
-#[cfg(feature = "wee_alloc")]
+#[cfg(feature = "lol_alloc")]
 #[global_allocator]
-static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+static ALLOCATOR: lol_alloc::LockedAllocator<lol_alloc::FreeListAllocator> =
+    lol_alloc::LockedAllocator::new(lol_alloc::FreeListAllocator::new());
 
 /// Call this function at least once during initialization to get better error
 // messages if the underlying Rust code ever panics (creates uncaught errors).
