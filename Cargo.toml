@@ -1,14 +1,18 @@
 [package]
-name = "viv-lzw-tiff-decoder"
+name = "lzw-tiff-decoder"
 version = "0.1.0"
-authors = ["Trevor Manz <trevor.j.manz@gmail.com>"]
-edition = "2018"
+authors = [
+    "Trevor Manz <trevor.j.manz@gmail.com>",
+    "Kyle Barron <kyle@developmentseed.org>",
+]
+edition = "2024"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
 
 [features]
-default = ["console_error_panic_hook"]
+default = []
+debug = ["dep:console_error_panic_hook"]
 
 [dependencies]
 weezl = "0.1.0"
