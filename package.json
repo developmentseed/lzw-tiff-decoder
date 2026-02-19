@@ -1,6 +1,6 @@
 {
   "name": "@developmentseed/lzw-tiff-decoder",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Trevor James Manz",
   "license": "MIT",
   "description": "WASM LZW decoder for TIFF images.",
@@ -16,7 +16,8 @@
     ".": "./index.mjs"
   },
   "scripts": {
-    "build": "rollup -c && tsc"
+    "build": "rollup -c && tsc",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
