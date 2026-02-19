@@ -1,5 +1,6 @@
+import terser from '@rollup/plugin-terser';
 import rust from '@wasm-tool/rollup-plugin-rust';
-import { terser } from 'rollup-plugin-terser';
+import esbuild from 'rollup-plugin-esbuild';
 
 /* tiny plugin to resolve `import.meta.url` to an empty string ("").
  *
@@ -15,12 +16,12 @@ const resolveImportMetaEmpty = () => ({
 });
 
 export default {
-  input: './index.js',
+  input: './index.ts',
   output: [
     { file: './index.mjs', format: 'es' },
-    { file: './index.cjs', format: 'cjs' },
   ],
   plugins: [
+    esbuild(),
     rust({ inlineWasm: true }),
     resolveImportMetaEmpty(),
     terser(),

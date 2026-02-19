@@ -7,5 +7,5 @@ wasm-pack.log
 
 js/node_modules/*
 js/package-lock.json
-js/index.cjs
+js/index.d.ts
 js/index.mjs

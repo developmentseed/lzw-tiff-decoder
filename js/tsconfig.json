@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationDir": ".",
+    "emitDeclarationOnly": true,
+    "strict": true
+  },
+  "files": ["index.ts", "cargo.d.ts"]
+}
